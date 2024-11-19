@@ -10,7 +10,8 @@ var thrs = 5;
 // read water surface
 var collection = ee.Image('projects/mapbiomas-workspace/COLECAO_DEV/COLECAO9_DEV/CERRADO/FOREST_TYPE/cerrado_forests_v' + version + '_t' +thrs);
   
-var territory = ee.Image('projects/mapbiomas-workspace/AUXILIAR/estados-2016-raster').rename('territory')
+var territory = ee.Image('projects/mapbiomas-workspace/AUXILIAR/biomas-2019-raster').rename('territory')
+territory = territory.updateMask(territory.eq(4))
   // create numerical ids
 //  .map(function(feature) {
 //    return (feature.set({'ID': ee.Number.parse(feature.get('ID'))}));
